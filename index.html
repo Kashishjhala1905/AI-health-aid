@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediPulse AI | Next-Gen Health Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside>
+            <div class="logo">
+                <span>🛡️</span> MediPulse AI
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item active" data-view="dashboard">
+                    <span>🏠</span> Dashboard
+                </li>
+                <li class="nav-item" data-view="classifier">
+                    <span>🔍</span> Symptom Checker
+                </li>
+                <li class="nav-item" data-view="tips">
+                    <span>💡</span> Health Tips
+                </li>
+            </ul>
+            
+            <div class="disclaimer" style="margin-top: auto;">
+                <strong>DISCLAIMER:</strong> This AI tool is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment.
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Dashboard View -->
+            <section id="dashboard-view" class="view">
+                <div class="hero-section">
+                    <img src="hero.png" alt="Medical AI">
+                    <div class="hero-content">
+                        <h1>Your AI-Powered Health Ally</h1>
+                        <p>Advanced disease classification and real-time health assistance at your fingertips.</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="glass-panel card fade-in">
+                        <h3 class="card-title">Quick Check</h3>
+                        <p>Analyze your symptoms using our advanced classification engine.</p>
+                        <button style="margin-top: 1rem;" onclick="app.switchView('classifier')">Start Analysis</button>
+                    </div>
+                    <div class="glass-panel card fade-in" style="animation-delay: 0.1s;">
+                        <h3 class="card-title">Health Trends</h3>
+                        <p>Global health insights and preventive measures updated hourly.</p>
+                    </div>
+                    <div class="glass-panel card fade-in" style="animation-delay: 0.2s;">
+                        <h3 class="card-title">Emergency Info</h3>
+                        <p>Quick access to emergency protocols and contact information.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Classifier View -->
+            <section id="classifier-view" class="view" style="display: none;">
+                <div class="glass-panel card fade-in">
+                    <h2 class="card-title">Symptom Classification Engine</h2>
+                    <p style="margin-bottom: 2rem; color: var(--text-muted);">Select all symptoms that you are currently experiencing:</p>
+                    
+                    <div id="symptom-selector" class="symptom-grid">
+                        <!-- Symptoms will be injected here -->
+                    </div>
+
+                    <button id="analyze-btn" class="primary-btn">Analyze Symptoms</button>
+
+                    <div id="results-area" style="margin-top: 3rem; display: none;">
+                        <h3 class="card-title">Classification Result</h3>
+                        <div id="result-content" class="glass-panel" style="padding: 1.5rem; border-color: var(--primary);">
+                            <!-- Results will be injected here -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tips View -->
+            <section id="tips-view" class="view" style="display: none;">
+                <div class="glass-panel card">
+                    <h2 class="card-title">Personalized Health Tips</h2>
+                    <p>Coming soon: AI-driven health optimization recommendations.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-trigger" class="chatbot-trigger">
+        <span>💬</span>
+    </div>
+
+    <div id="chatbot-window" class="glass-panel chatbot-window">
+        <div class="chat-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 1.2rem;">🤖</span>
+                <strong>MediBot AI</strong>
+            </div>
+            <button id="close-chat" style="background: transparent; color: white; padding: 5px;">✕</button>
+        </div>
+        <div id="chat-messages" class="chat-messages">
+            <div class="message bot">Hello! I'm MediBot. How can I help you today?</div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Ask about health tips...">
+            <button id="send-chat">Send</button>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
